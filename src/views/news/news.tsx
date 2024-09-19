@@ -1,13 +1,16 @@
-import { useEffect } from "react";
-import { useAppDispatch } from "../../hooks/hook";
-import { fetchNews } from "../../store/newsSlice";
+import { useFetchNews } from "./useFetchNews";
+import { NewsShort } from "../../components/news/NewsShort";
 
 export const News: React.FC = () => {
-	const dispatch = useAppDispatch();
+	const { data } = useFetchNews();
 
-	useEffect(() => {
-		dispatch(fetchNews());
-	}, []);
+	if (!data) return null
 
-	return null;
+	return (
+		<div>
+			{data.map((item) => (
+				<NewsShort key={item.id} news={item} />
+			))}
+		</div>
+	);
 };

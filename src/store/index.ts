@@ -1,10 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import newsSlice from "./newsSlice";
+import { newsApi } from '../api/news';
 
 const store = configureStore({
 	reducer: {
-		news: newsSlice,
+		[newsApi.reducerPath]: newsApi.reducer,
 	},
+	middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat([
+			newsApi.middleware
+		]),
 });
 
 export default store;
