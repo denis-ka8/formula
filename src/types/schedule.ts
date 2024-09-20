@@ -1,6 +1,7 @@
 type RaceDate = string;
 
 export interface ISchedule {
+  raceId: string;
 	round: number;
 	year: number;
 	country: string;

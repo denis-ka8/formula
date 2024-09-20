@@ -8,8 +8,8 @@ export const scheduleApi = createApi({
 		getFullSchedule: builder.query<ISchedule[], void>({
 			query: () => `schedule`,
 		}),
-		getUpcomingRounds: builder.query<ISchedule[], void>({
-			query: () => `schedule?upcoming=1`,
+		getUpcomingRounds: builder.query<ISchedule[], number | void>({
+			query: (rounds) => `schedule?upcoming=${rounds ? rounds : "all"}`,
 		}),
 	}),
 });

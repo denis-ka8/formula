@@ -1,4 +1,5 @@
 import { INews } from "../../types/news";
+import { NewsItem, NewsImage, NewsTitle, NewsInfo, NewsDate } from "./newsShort.styles";
 
 interface NewsShortProps {
 	news: INews;
@@ -6,10 +7,11 @@ interface NewsShortProps {
 
 export const NewsShort: React.FC<NewsShortProps> = ({ news }) => {
 	return (
-		<div key={news.id}>
-			<img src={news.image} alt={news.title} height="100" />
-			<div>{news.title}</div>
-			<div>{news.shortInfo}</div>
-		</div>
+		<NewsItem key={news.id}>
+			<NewsImage src={news.image} alt={news.title} />
+			<NewsTitle>{news.title}</NewsTitle>
+			<NewsInfo>{news.shortInfo}</NewsInfo>
+			<NewsDate>{news.date}</NewsDate>
+		</NewsItem>
 	);
 };
