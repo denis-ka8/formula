@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NewsItem = styled.div`
-	width: 260px;
+	width: 300px;
 `;
 export const NewsImage = styled.img`
 	display: block;

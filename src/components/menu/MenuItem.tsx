@@ -1,8 +1,8 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { MenuLink } from "./menu.styles";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-interface MenuItemProps {
+export interface MenuItemProps {
 	title: string;
 	icon: IconProp;
 	link: string;

@@ -1,16 +1,20 @@
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { MenuWrapper } from "./menu.styles";
-import { MenuItem } from "./MenuItem";
+import { MenuItem, MenuItemProps } from "./MenuItem";
 
-export const Menu: React.FC = () => {
+interface MenuProps {
+	menuItems: MenuItemProps[];
+}
+
+export const Menu: React.FC<MenuProps> = ({ menuItems }) => {
 	return (
-		<MenuWrapper>
-			<MenuItem icon={faCoffee} title="Dashboard" link="/" />
-			<MenuItem icon={faCoffee} title="News" link="/news" />
-			<MenuItem icon={faCoffee} title="Schedule" link="/" />
-			<MenuItem icon={faCoffee} title="Championship" link="/championship" />
-			<MenuItem icon={faCoffee} title="Drivers" link="/drivers" />
-			<MenuItem icon={faCoffee} title="Teams" link="/teams" />
-		</MenuWrapper>
+		<>
+			{menuItems.map((item) => (
+				<MenuItem
+					key={item.title}
+					icon={item.icon}
+					title={item.title}
+					link={item.link}
+				/>
+			))}
+		</>
 	);
 };
